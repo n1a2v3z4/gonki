@@ -1,19 +1,23 @@
 //
-//  ViewController.swift
+//  ToViewController.swift
 //  gonki
 //
 //  Created by Cергей Иванович on 27.08.21.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class ToViewController: UIViewController {
+   
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+        
+    
+    
+}
 }
 
