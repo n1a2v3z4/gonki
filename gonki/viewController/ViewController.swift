@@ -14,18 +14,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        title = "Начальный экран"
+       
         if let navigationBar = self.navigationController?.navigationBar {
             
-            let secondFrame = CGRect(x: navigationBar.frame.width/2, y: 0, width: navigationBar.frame.width/2, height: navigationBar.frame.height)
-            
-            
-            let  secondLabel = UILabel(frame: secondFrame)
-            secondLabel.text = "Начальный экран"
-            secondLabel.center = navigationBar.center
-            secondLabel.textAlignment = .center
             navigationBar.backgroundColor = .red
-            navigationBar.addSubview(secondLabel)
+            navigationBar.barStyle = .black
+
         }
         
     }
