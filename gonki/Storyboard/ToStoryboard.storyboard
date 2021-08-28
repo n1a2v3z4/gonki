@@ -30,6 +30,9 @@
                                                     <imageReference key="image" image="arrow.left" catalog="system" symbolScale="large"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="31"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="ButtonLeft:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TKh-GD-Woh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtE-JA-f3T">
                                                 <rect key="frame" x="182" y="0.0" width="132" height="44"/>

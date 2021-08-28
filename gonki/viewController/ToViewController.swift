@@ -55,4 +55,13 @@ class ToViewController: UIViewController {
     }
 }
 
+    @IBAction func ButtonLeft(_ sender: Any) {
+    
+        UIView.animate(withDuration: 1) {
+            
+            self.CarOutlet.center = CGPoint (x: self.CentrView.frame.maxX/4, y: self.CentrView.frame.maxY - self.CarOutlet.frame.height/2 - 5)
+    
+    
+    }
+}
 }
