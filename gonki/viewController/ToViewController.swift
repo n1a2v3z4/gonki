@@ -39,9 +39,13 @@ class ToViewController: UIViewController {
     var timer: Timer!
     
     var timer1: Timer!
-        
+    
+    let speed = SettingViewController.shared.speed
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print ("\(self.speed) + YQQ")
+
         self.CarOutlet.layoutIfNeeded()
         title = "Игра"
         
@@ -75,21 +79,21 @@ class ToViewController: UIViewController {
                 NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
                 
                 self.timer1 = Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: { _ in
-                    UIView.animate(withDuration: TimeInterval(self.randDelay), delay: 0, options: .curveEaseIn ) {
+                    UIView.animate(withDuration: TimeInterval(self.speed), delay: 0, options: .curveEaseIn ) {
                         
                         horizontalConstraint.constant = -self.view.frame.width*0.33333
                         
                         verticalConstraint.constant = self.LeftView.frame.height*0.5 - wood.frame.height/2
                         
                         self.view.layoutIfNeeded()
-                        
+                    
 //                        self.view.bringSubviewToFront(self.lowerView)
                         
                     } completion: { _ in
                         if verticalConstraint.constant == self.LeftView.frame.height*0.5 - wood.frame.height/2 && self.zentrConstraint.constant == -self.view.frame.width*0.33333 {
                             
                         self.navigationController?.popViewController(animated: true)
-                    
+                        
                     }
                         
                     wood.isHidden = true
@@ -108,7 +112,7 @@ class ToViewController: UIViewController {
                 
                 self.view.addSubview(wood)
                 
-                UIView.animate(withDuration: TimeInterval(self.randDelay), delay: 0, options: .curveEaseIn ) {
+                UIView.animate(withDuration: TimeInterval(self.speed), delay: 0, options: .curveEaseIn ) {
                     wood.center = CGPoint(x: self.view.frame.maxX*0.5, y: self.LeftView.frame.maxY + wood.frame.height/2)
 //                    self.view.bringSubviewToFront(self.lowerView)
                     
@@ -127,7 +131,7 @@ class ToViewController: UIViewController {
                 
                 wood.image = #imageLiteral(resourceName: "wood")
                 self.view.addSubview(wood)
-                UIView.animate(withDuration: TimeInterval(self.randDelay), delay: 0, options: .curveEaseIn ) {
+                UIView.animate(withDuration: TimeInterval(self.speed), delay: 0, options: .curveEaseIn ) {
                     wood.center = CGPoint(x: self.view.frame.maxX*0.85, y: self.LeftView.frame.maxY + wood.frame.height/2)
 //                    self.view.bringSubviewToFront(self.lowerView)
                     
