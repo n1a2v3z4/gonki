@@ -40,7 +40,10 @@ class ToViewController: UIViewController {
     
     var timer1: Timer!
     
-    let speed = SettingViewController.shared.speed
+//    let speed = SettingViewController.shared.speed
+    
+    let speed = UserDefaults.standard.value(forKey: "speed") as? Double ?? 2.5
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

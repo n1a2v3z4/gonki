@@ -17,54 +17,34 @@ class SettingViewController: UIViewController {
     let key = "speedKey"
     
     let key2 = "speed"
-
-    var currentValue: Float = 50 {
-        didSet {
-            UserDefaults.standard.setValue(self.currentValue, forKey: key)
-            //сохраняет только в оперативной памяти
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    var speed: Double = 2.5 {
-       didSet {
-        UserDefaults.standard.setValue(self.speed, forKey: key2)
-        //сохраняет только в оперативной памяти
-        UserDefaults.standard.synchronize()
-        }
-        
-    }
-    
-    
-    static let shared: SettingViewController = SettingViewController()
-    
-    
+    var speed = 2.5
+     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = (UserDefaults.standard.value(forKey: key)  as? Float) ?? 50
         
-        let value = UserDefaults.standard.integer(forKey: key)
-        sliderOutlet.value = Float(value)
-
-        lableText.text = "\(value) %"
+        sliderOutlet.value = value
         
-        let speedValue = UserDefaults.standard.double(forKey: key2)
-        SettingViewController.shared.speed = speedValue
+        lableText.text = "\(Int(value)) %"
        
     }
-    
-    
         
     @IBAction func sliderAction(_ : UISlider) {
 
-
-         SettingViewController.shared.currentValue = sliderOutlet.value
+     
+        var  currentValue = sliderOutlet.value
         
-        lableText.text = "\(Int(SettingViewController.shared.currentValue))  %"
+        lableText.text = "\(Int(currentValue))  %"
+        UserDefaults.standard.setValue(currentValue, forKey: key)
+        //сохраняет только в оперативной памяти
+        UserDefaults.standard.synchronize()
+     
         
-        SettingViewController.shared.speed = 5 - (5 * Double(SettingViewController.shared.currentValue)/100)
-       
+        var speed = 5 - (5 * Double(currentValue)/100) + 0.2
+        UserDefaults.standard.setValue(speed, forKey: key2)
+        //сохраняет только в оперативной памяти
+        UserDefaults.standard.synchronize()
+        
     }
-  
-
 
 }
